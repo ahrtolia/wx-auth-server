@@ -1,0 +1,15 @@
+logging:
+  level:
+    org.springframework.web: DEBUG
+    com.github.binarywang.demo.wx.open: DEBUG
+
+wechat:
+  open:
+    componentAppId: "wxf8769dc5a309186f"
+    componentSecret: "3f747061c422591e3a848e194f83b02b"
+    componentToken: "lishangzhenxuan"
+    componentAesKey: "Wvr7GkWNJvxlsfN6kKViSc6EkY6g8TSEDTrn0dJ5jPr"
+server:
+  port: 80
+
+

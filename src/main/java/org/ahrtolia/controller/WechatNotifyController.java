@@ -1,25 +1,14 @@
 package org.ahrtolia.controller;
 
-import me.chanjar.weixin.mp.bean.message.WxMpXmlMessage;
-import me.chanjar.weixin.mp.bean.message.WxMpXmlOutNewsMessage;
-import me.chanjar.weixin.mp.bean.message.WxMpXmlOutTextMessage;
-import org.ahrtolia.service.OutNewsCardService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.security.MessageDigest;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * @author <a href="https://github.com/007gzs">007</a>
@@ -28,8 +17,6 @@ import java.util.List;
 @RequestMapping("/notify")
 public class WechatNotifyController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
-    @Autowired
-    protected OutNewsCardService outNewsCardService;
 
     @RequestMapping("/testServlet")
     @ResponseBody
@@ -44,7 +31,7 @@ public class WechatNotifyController {
         //时间戳
         String timestamp = request.getParameter("timestamp");
         verifyUrl(signature, timestamp, nonce);
-        return request.getParameter("echostr");
+        return echostr;
     }
 
     public static boolean verifyUrl(String msgSignature, String timeStamp, String nonce) {
